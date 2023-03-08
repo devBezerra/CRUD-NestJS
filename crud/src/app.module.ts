@@ -3,9 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
 
+import { MongooseModule } from '@nestjs/mongoose';
+
 @Module({
-  imports: [TasksModule],
+  imports: [
+    MongooseModule.forRoot(`mongodb+srv://mateus:AiBXCtIkSLmHpmOo@cluster0.wf1x0pc.mongodb.net/?retryWrites=true&w=majority`),
+    TasksModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
